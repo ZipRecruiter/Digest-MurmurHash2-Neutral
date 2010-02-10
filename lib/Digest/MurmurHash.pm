@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use base 'Exporter';
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 our @EXPORT_OK = ('murmur_hash');
 
 require XSLoader;
@@ -32,6 +32,8 @@ OR
 The murmur hash algorithm by Austin Appleby is an exteremely fast
 algorithm that combines both excellent collision resistence and
 distribution characteristics.
+
+This module requires Perl version > 5.8
 
 =head1 BENCHMARK 
 

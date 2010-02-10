@@ -1,4 +1,5 @@
 use ExtUtils::MakeMaker;
+use 5.008001;
 
 WriteMakefile(
     NAME              => 'Digest::MurmurHash',
