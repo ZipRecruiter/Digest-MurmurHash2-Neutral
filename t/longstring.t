@@ -2,7 +2,7 @@ use warnings;
 use strict;
 
 use Test::More 'no_plan';
-use Digest::MurmurHash qw(murmur_hash);
+use Digest::MurmurHash2::Neutral qw(murmur_hash2_neutral);
 
 use constant { ITERATIONS => 1000 };
 
@@ -22,12 +22,12 @@ my %results = ();
 
 for ($i=0; $i<ITERATIONS; $i++) {
     $test_str = randstr(2048);
-    $results{$test_str} = murmur_hash($test_str); 
+    $results{$test_str} = murmur_hash2_neutral($test_str); 
 }
 
 is(keys(%results), ITERATIONS, "Collision Found");
 
 # Test for consistent result.
 for my $key (keys %results) {
-    is(murmur_hash($key), $results{$key}, "Inconsistent Hash");
+    is(murmur_hash2_neutral($key), $results{$key}, "Inconsistent Hash");
 }
